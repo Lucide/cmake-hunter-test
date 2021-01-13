@@ -23,5 +23,9 @@ project(cmake-hunter-test
 file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/test.xp" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 find_package(ZLIB REQUIRED)
 add_executable(boo main.c)
+target_compile_definitions(boo
+                           PRIVATE
+                           _CRT_SECURE_NO_WARNINGS
+                           _CRT_NONSTDC_NO_WARNINGS)
 target_link_libraries(boo PRIVATE ZLIB::ZLIB)
 
